@@ -7,6 +7,7 @@ Motivation: I always had trouble knowing roughly how much I would receive in
 dividends. Brokerages only show a provisioned value, and it depends on each FII's
 payment schedule. Here we use the last paid dividend to get a more concrete
 estimate of the expected amount.
+<img width="1340" height="560" alt="image" src="https://github.com/user-attachments/assets/fd6b8b25-a4d8-43e1-971e-72e9a61da24f" />
 
 ## Requirements
 
