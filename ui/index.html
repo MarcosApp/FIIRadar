@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FII Radar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div class="hero__content">
+          <div class="badge">FII Radar</div>
+          <h1>
+            Seus dividendos,
+            <span class="accent">claros e mensais</span>
+          </h1>
+          <p>
+            Centralize quantidade de cotas e o ultimo rendimento por fundo. O
+            botao Atualizar dispara a coleta e atualiza os totais.
+          </p>
+          <div class="hero__actions">
+            <button class="btn btn--primary" id="refreshBtn">
+              <span>Atualizar</span>
+              <em class="btn__pulse" aria-hidden="true"></em>
+            </button>
+            <div class="meta">
+              <div class="meta__label">Ultima atualizacao</div>
+              <div class="meta__value" id="lastUpdate">-</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero__card">
+          <div class="hero__card__top">
+            <span>Total estimado</span>
+            <strong id="totalEstimatedMain">R$ 0,00</strong>
+          </div>
+          <div class="hero__card__grid">
+            <div>
+              <span>FIIs</span>
+              <strong id="fiisCount">0</strong>
+            </div>
+            <div>
+              <span>Rendimento medio</span>
+              <strong id="avgYield">R$ 0,00</strong>
+            </div>
+            <div>
+              <span>Ultimo mes</span>
+              <strong id="lastMonth">-</strong>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="stats">
+        <div class="stat">
+          <span class="stat__label">Maior yield</span>
+          <strong class="stat__value" id="topYieldName">-</strong>
+          <small id="topYieldValue">-</small>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Maior posicao</span>
+          <strong class="stat__value" id="topPositionName">-</strong>
+          <small id="topPositionValue">-</small>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Ultima coleta</span>
+          <strong class="stat__value" id="lastFetchLabel">-</strong>
+          <small id="lastFetchValue">-</small>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="panel">
+          <div class="panel__header">
+            <h2>Carteira</h2>
+            <span class="pill" id="tableMonth">Mensal</span>
+          </div>
+          <div class="table" id="fiisTable"></div>
+          <div class="empty" id="fiisEmpty">Sem FIIs cadastrados.</div>
+        </div>
+
+        <div class="panel">
+          <div class="panel__header">
+            <h2>Resumo por mes</h2>
+            <span class="pill">Historico</span>
+          </div>
+          <div class="timeline" id="timeline"></div>
+          <div class="panel__footer">
+            <div>
+              <span class="label">Meta 2025</span>
+              <strong>R$ 3.500,00</strong>
+            </div>
+            <div class="progress">
+              <div class="progress__bar" style="width: 72%"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid grid--compact">
+        <div class="panel panel--accent">
+          <h3>Adicionar/alterar FII</h3>
+          <p>
+            Use o comando <span class="mono">app.py add</span> para ajustar sua
+            quantidade. Para importar em lote, use
+            <span class="mono">app.py import</span>.
+          </p>
+          <div class="code">
+            python app.py add MXRF11 3200
+          </div>
+        </div>
+        <div class="panel panel--accent">
+          <h3>Rotina diaria</h3>
+          <p>
+            Agendamento configurado para 08:00. A coleta salva o historico em
+            SQLite e atualiza o total estimado.
+          </p>
+          <div class="code">python app.py fetch</div>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
